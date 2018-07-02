@@ -2,6 +2,8 @@
 : "${CF_VARS_STORE_PATH:="cf-deployment-variables.yml"}"
 : "${BOSH_CLI_NAME:="bosh"}"
 
+set -eux
+
 pushd $1
     export CF_ADMIN_PASSWORD=$(${BOSH_CLI_NAME} interpolate --path /cf_admin_password ${CF_VARS_STORE_PATH})
     export BOSH_CLIENT_SECRET=$(bbl director-password)
