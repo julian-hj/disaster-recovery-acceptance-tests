@@ -31,7 +31,7 @@ pushd $1
     fi
 
     if grep "azurefile-broker-password" ${CF_VARS_STORE_PATH}>/dev/null; then
-        export SMB_SERVICE_NAME="smb"
+        export SMB_SERVICE_NAME="azurefile-service"
         export SMB_PLAN_NAME="Existing"
         export SMB_BROKER_USER="admin"
         export SMB_BROKER_PASSWORD=$(${BOSH_CLI_NAME} interpolate --path /azurefile-broker-password ${CF_VARS_STORE_PATH})
