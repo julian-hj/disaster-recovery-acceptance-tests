@@ -8,7 +8,7 @@ pushd $1
     export CF_ADMIN_PASSWORD=$(${BOSH_CLI_NAME} interpolate --path /cf_admin_password ${CF_VARS_STORE_PATH})
     export BOSH_CLIENT_SECRET=$(bbl director-password)
     export BOSH_CA_CERT="$(bbl director-ca-cert)"
-    export BOSH_ENVIRONMENT=$(bbl jumpbox-address)
+    export BOSH_ENVIRONMENT=$(bbl director-address)
     export BOSH_GW_USER="jumpbox"
     export BOSH_GW_HOST=$(bbl jumpbox-address)
     export BOSH_GW_PRIVATE_KEY_CONTENTS="$(bbl ssh-key)"
